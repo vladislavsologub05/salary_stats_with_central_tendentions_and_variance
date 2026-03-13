@@ -27,13 +27,32 @@ class SalaryStats:
     def variance(self):
         x_mean = self.mean()
         deviations = sum((x - x_mean) ** 2 for x in self.data)
-        return deviations / (len(self.data) - 1) if len(self.data) >=2 else 0
+        return deviations / (len(self.data) - 1) if len(self.data) >= 2 else 0
 
     def standard_deviation(self):
         return math.sqrt(self.variance())
 
     def interquartile_range(self):
         return self.quantile(0.75) - self.quantile(0.25)
+
+    def __str__(self):
+        sep1 = "-" * 10 + " Центральные тенденции " + "-" * 10 + "\n"
+        sep2 = "-" * 16 + " Вариация " + "-" * 17 + "\n"
+
+        centr_tend = (f"Средняя зарплата: {self.mean()}\n"
+                      f"Медианная зарплата: {self.median()}\n"
+                      f"10-й процентиль: {self.quantile(0.10)}\n"
+                      f"25-й процентиль: {self.quantile(0.25)}\n"
+                      f"50-й процентиль: {self.quantile(0.50)}\n"
+                      f"75-й процентиль: {self.quantile(0.75)}\n"
+                      f"90-й процентиль: {self.quantile(0.90)}\n")
+
+        variation = (f"Размах: {self.data_range()}\n"
+                     f"Дисперсия: {self.variance()}\n"
+                     f"Стандартное отклонение: {self.standard_deviation()}\n"
+                     f"Интерквартильный размах: {self.interquartile_range()}\n")
+
+        return sep1 + centr_tend + "\n" + sep2 + variation
 
 
 
