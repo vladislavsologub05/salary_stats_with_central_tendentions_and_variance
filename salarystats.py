@@ -60,17 +60,4 @@ salary_stats_rub = [20000, 40000, 100000, 250000, 120000, 63000, 1500000,
                     36000, 78000, 145000, 1350000, 24000, 87000, 53000]
 
 total_salary_stats = SalaryStats(salary_stats_rub)
-print("-" * 10, "Центральные тенденции", "-" * 10)    #43 символа
-print(f"Средняя зарплата: {total_salary_stats.mean()}")
-print(f"Медианная зарплата: {total_salary_stats.median()}")
-print(f"10-й процентиль: {total_salary_stats.quantile(0.10)}")
-print(f"25-й процентиль: {total_salary_stats.quantile(0.25)}")
-print(f"50-й процентиль: {total_salary_stats.quantile(0.50)}")
-print(f"75-й процентиль: {total_salary_stats.quantile(0.75)}")
-print(f"90-й процентиль: {total_salary_stats.quantile(0.90)}")
-print()
-print("-" * 16, "Вариация", "-" * 17)
-print(f"Размах: {total_salary_stats.data_range()}")
-print(f"Дисперсия: {total_salary_stats.variance()}")
-print(f"Стандартное отклонение от среднего: {total_salary_stats.standard_deviation()}")
-print(f"Интерквартильный размах: {total_salary_stats.interquartile_range()}")
+print(str(total_salary_stats))
